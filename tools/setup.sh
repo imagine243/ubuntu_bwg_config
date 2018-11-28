@@ -50,7 +50,7 @@ GUI=$(zenity --list --checklist \
 
 if [[$GUI]]
 then
-	if[[$GUI == *"1"*]]
+	if [[ $GUI == *"1"* ]]
 	then
 		clear
 		echo "Update System"
