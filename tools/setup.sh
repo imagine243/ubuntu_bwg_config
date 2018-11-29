@@ -52,6 +52,10 @@ config_vim() {
     check_software clang 'sudo apt -y install'
     check_software cmake 'sudo apt -y install'
 
+    if [  -d "$HOME/dotfile" ]; then
+        print_log "mv $HOME/dotfile to $HOME/dotfile.bak"
+        mv $HOME/dotfile $HOME/dotfile.bak
+    fi
     #git clone vim confi
     git clone https://github.com/imagine243/dotfile.git ~/dotfile
 
