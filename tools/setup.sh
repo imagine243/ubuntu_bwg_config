@@ -103,3 +103,8 @@ clear
 echo "config vim"
 config_vim
 echo "wait 3s please..."
+
+clear
+echo "config ssh"
+config_ssh
+echo "wait 3s please..."
