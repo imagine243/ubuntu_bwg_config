@@ -33,10 +33,21 @@ update_system() {
     print_log "done"
 }
 
+#install software
+install_software() {
+	clear
+	print_log 'install software...'
+    chmod +x $relative_location/../res/app/install.sh
+    $relative_location/../res/app/install.sh
+    print_log "done"
+}
 
 clear
 echo "Update System"
 update_system
 echo "wait 3s please..."
 
-
+clear
+echo "Install Softwares (res/app/apt)"
+install_software
+echo "wait 3s please..."
