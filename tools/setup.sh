@@ -42,6 +42,39 @@ install_software() {
     print_log "done"
 }
 
+#config vim
+config_vim() {
+    clear
+    print_log "do config for vim..."
+
+    #check software
+    check_software vim 'sudo apt -y install'
+    check_software clang 'sudo apt -y install'
+    check_software cmake 'sudo apt -y install'
+
+    #git clone vim confi
+    git clone https://github.com/imagine243/dotfile.git ~/dotfile
+
+    # for .vimrc
+    if [ -f "$HOME/.vimrc" ]; then
+        print_log "mv $HOME/.vimrc to $HOME/.vimrc.bak"
+        mv $HOME/.vimrc $HOME/.vimrc.bak
+    fi
+    # for .vim
+    if [  -d "$HOME/.vim" ]; then
+        print_log "mv $HOME/.vim to $HOME/.vim.bak"
+        mv $HOME/.vim $HOME/.vim.bak
+    fi
+
+    # do config
+    echo "source ~/dotfile/vim_config/init.vim"
+    # download vim plug
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    vim +PlugInstall +qall
+    print_log "done"
+}
+
 clear
 echo "Update System"
 update_system
@@ -50,4 +83,9 @@ echo "wait 3s please..."
 clear
 echo "Install Softwares (res/app/apt)"
 install_software
+echo "wait 3s please..."
+
+clear
+echo "config vim"
+config_vim
 echo "wait 3s please..."

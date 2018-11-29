@@ -8,3 +8,6 @@ zsh
 golang
 silversearcher-ag
 ripgrep
+clang
+curl
+wget
