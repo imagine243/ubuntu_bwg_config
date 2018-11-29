@@ -71,7 +71,7 @@ config_vim() {
     fi
 
     # do config
-    echo "source ~/dotfile/vim_config/init.vim"
+    echo "source ~/dotfile/vim_config/init.vim" > $HOME/.vimrc
     # download vim plug
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
