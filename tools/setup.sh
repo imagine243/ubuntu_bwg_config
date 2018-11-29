@@ -79,6 +79,16 @@ config_vim() {
     print_log "done"
 }
 
+# config ssh for github
+config_ssh() {
+    clear
+    print_log "config ssh for github..."
+    chmod +x $relative_location/../res/ssh/ssh.sh
+    $relative_location/../res/ssh/ssh.sh
+    print_log "done"
+
+}
+
 clear
 echo "Update System"
 update_system
