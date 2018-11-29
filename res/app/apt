@@ -1,4 +1,6 @@
 cmake
+build-essential
+python3-dev
 git
 vim
 zsh
